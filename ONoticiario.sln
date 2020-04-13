@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONoticiario", "ONoticiario.csproj", "{A039B68E-B96D-41DF-A03A-570204FC47E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A039B68E-B96D-41DF-A03A-570204FC47E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A039B68E-B96D-41DF-A03A-570204FC47E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A039B68E-B96D-41DF-A03A-570204FC47E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A039B68E-B96D-41DF-A03A-570204FC47E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D9421F91-590A-4777-B56D-CA3A68269F3B}
+	EndGlobalSection
+EndGlobal
