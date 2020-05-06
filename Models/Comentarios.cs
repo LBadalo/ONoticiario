@@ -30,7 +30,7 @@ namespace ONoticiario.Models
         //Forasteira
         [ForeignKey("Noticia")]
         public int NoticiasFK { get; set; }
-
+        public virtual Noticias Noticia { get; set; }
 
     }
 }

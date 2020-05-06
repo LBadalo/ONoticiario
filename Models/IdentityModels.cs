@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -28,6 +29,22 @@ namespace ONoticiario.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        //identificar as tabelas da base de dados
+        public virtual DbSet<Categorias> Categorias { get; set; }
+        public virtual DbSet<Comentarios> Comentarios { get; set; }
+        public virtual DbSet<Noticias> Noticias { get; set; }
+        public virtual DbSet<Utilizadores> Utilizadores { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
