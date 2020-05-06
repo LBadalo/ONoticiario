@@ -21,11 +21,12 @@ namespace ONoticiario.Models
         public string Descricao { get; set; }
 
         //Forasteira
-        [ForeignKey("Utilizadores")]
+        [ForeignKey("Utilizador")]
         public int UtilizadorFK { get; set; }
+        public virtual Utilizadores Utilizador { get; set; }
 
-       //Hora do Comentário
-       public DateTime Data { get; set; }
+        //Hora do Comentário
+        public DateTime Data { get; set; }
 
         //Forasteira
         [ForeignKey("Noticia")]

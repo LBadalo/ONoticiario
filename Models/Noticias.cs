@@ -11,7 +11,9 @@ namespace ONoticiario.Models
     {
         public Noticias()
         {
-           
+            this.ListaComentarios = new HashSet<Comentarios>();
+
+            this.ListaCategorias = new HashSet<Categorias>();
         }
 
         //Chave primaria
@@ -27,12 +29,13 @@ namespace ONoticiario.Models
         public string Titulo { get; set; }
 
         //Capa da Noticia
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
+       
         public string Capa { get; set; }
 
-        //Chave forasterira
-        [ForeignKey("Utilizadores")]
+        //Chave forasteira
+        [ForeignKey("Utilizador")]
         public int UtilizadorFK { get; set; }
+        public virtual Utilizadores Utilizador { get; set; }
 
         //Paragrafo a negrito da Noticia
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
@@ -41,10 +44,6 @@ namespace ONoticiario.Models
         //Conteudo da Noticia
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
         public string Conteudo { get; set; }
-
-        //Texto da noticia
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
-        public string Texto { get; set; }
 
         //Relacionar a noticia aos varios comentarios
         public virtual ICollection<Comentarios> ListaComentarios { get; set; }
