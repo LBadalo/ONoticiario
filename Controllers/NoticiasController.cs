@@ -17,7 +17,7 @@ namespace ONoticiario.Controllers
         // GET: Noticias
         public ActionResult Index()
         {
-            var noticias = db.Noticias.Include(n => n.Utilizador);
+            var noticias = db.Noticias.Include(n => n.Autor);
             return View(noticias.ToList());
         }
 
@@ -57,7 +57,7 @@ namespace ONoticiario.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UtilizadorFK = new SelectList(db.Utilizadores, "ID", "Username", noticias.UtilizadorFK);
+            ViewBag.UtilizadorFK = new SelectList(db.Utilizadores, "ID", "Username", noticias.AutorFK);
             return View(noticias);
         }
 
@@ -73,7 +73,7 @@ namespace ONoticiario.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UtilizadorFK = new SelectList(db.Utilizadores, "ID", "Username", noticias.UtilizadorFK);
+            ViewBag.UtilizadorFK = new SelectList(db.Utilizadores, "ID", "Username", noticias.AutorFK);
             return View(noticias);
         }
 
@@ -90,7 +90,7 @@ namespace ONoticiario.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UtilizadorFK = new SelectList(db.Utilizadores, "ID", "Username", noticias.UtilizadorFK);
+            ViewBag.UtilizadorFK = new SelectList(db.Utilizadores, "ID", "Username", noticias.AutorFK);
             return View(noticias);
         }
 

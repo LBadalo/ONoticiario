@@ -17,16 +17,18 @@ namespace ONoticiario.Models
         //ID
         [Key]
         public int ID { get; set; }
-
+        //Comentario
         public string Descricao { get; set; }
+
+        //Hora do Comentário
+        public DateTime Data { get; set; }
+
+        //Visivel
 
         //Forasteira
         [ForeignKey("Utilizador")]
         public int UtilizadorFK { get; set; }
         public virtual Utilizadores Utilizador { get; set; }
-
-        //Hora do Comentário
-        public DateTime Data { get; set; }
 
         //Forasteira
         [ForeignKey("Noticia")]
