@@ -1,19 +1,19 @@
-namespace ONoticiario.Migrations
+Ôªønamespace ONoticiario.Migrations
 {
+    using ONoticiario.Models;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using ONoticiario.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<ONoticiario.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "ONoticiario.Models.ApplicationDbContext";
         }
+
         protected override void Seed(ONoticiario.Models.ApplicationDbContext context)
         {
 
@@ -46,7 +46,7 @@ namespace ONoticiario.Migrations
             utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Username, aa));
             context.SaveChanges();
 
-            //criaÁ„o das noticias
+            //cria√ß√£o das noticias
             var noticias = new List<Noticias>
                     {
                         new Noticias{
@@ -97,16 +97,14 @@ namespace ONoticiario.Migrations
             noticias.ForEach(aa => context.Noticias.AddOrUpdate(a => a.Data, aa));
             context.SaveChanges();
 
-            //criaÁ„o de coment·rios
+            //cria√ß√£o de coment√°rios
             var comentarios = new List<Comentarios>
                     {
-                        new Comentarios{ID=1,Descricao="Coment·rio de teste",UtilizadorFK=3,Data=new DateTime(2019,6,28),NoticiasFK=1},
-                        new Comentarios{ID=2,Descricao="Coment·rio de teste",Data=new DateTime(2019,6,28),UtilizadorFK=2,NoticiasFK=2},
+                        new Comentarios{ID=1,Descricao="Coment√°rio de teste",UtilizadorFK=3,Data=new DateTime(2019,6,28),NoticiasFK=1},
+                        new Comentarios{ID=2,Descricao="Coment√°rio de teste",Data=new DateTime(2019,6,28),UtilizadorFK=2,NoticiasFK=2},
                     };
             comentarios.ForEach(aa => context.Comentarios.AddOrUpdate(a => a.Descricao, aa));
             context.SaveChanges();
         }
     }
 }
-
-
