@@ -21,12 +21,14 @@ namespace ONoticiario.Models
             public int ID { get; set; }
 
         //Nome do utilizador
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório.")]
+        [Required(ErrorMessage = "O Nome é de preenchimento obrigatório.")]
         [StringLength(40, ErrorMessage = "O {0} não pode ter mais de {1} carateres.")]
-        public string Nome { get; set; }
-        
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
+        //[RegularExpression("^[a-zA-Z0-9_.,áãàâÃÀÁÂÔÒÓÕòóôõÉÈÊéèêíìîÌÍÎúùûçÇ!-.? ]*", ErrorMessage = "O {0} tem caracteres inválidos!")]
         public string Username { get; set; }
+        //Username
+        //[RegularExpression("^[a-zA-Z0-9_.,áãàâÃÀÁÂÔÒÓÕòóôõÉÈÊéèêíìîÌÍÎúùûçÇ!-.? ]*", ErrorMessage = "O {0} tem caracteres inválidos!")]
+        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
+        public string Email { get; set; }
 
 
             //Data nascimento
@@ -34,7 +36,7 @@ namespace ONoticiario.Models
             public DateTime DataNascimento { get; set; }
 
             //Descricao do utilizador
-            public string Biografia { get; set; }
+            public string Descricao { get; set; }
 
             public string Avatar { get; set; }
         //atributo auxiliar para relacionar a tabela dos utilizadores Asp.Net com a tabela utilizadores

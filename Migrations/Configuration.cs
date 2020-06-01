@@ -39,11 +39,11 @@ namespace ONoticiario.Migrations
 
             //Utilizadores
             var utilizadores = new List<Utilizadores> {
-                        new Utilizadores {Avatar="aa.jpg",ID=1,Biografia="a",Nome="luis",Username="admin@ipt.pt",DataNascimento= new DateTime(1997, 9, 29) },
-                        new Utilizadores { Avatar = "aa.jpg", ID = 2, Biografia = "aa", Nome = "AntonioSilva", Username = "Jornalista@ipt.com", DataNascimento = new DateTime(1970, 2, 09) },
-                        new Utilizadores {Avatar="aa.jpg",ID=3,Biografia="aaa", Nome="Mauricio",Username="teste@ipt.pt", DataNascimento=new DateTime(1922,2,20)}
+                        new Utilizadores {Avatar="aa.jpg",ID=1,Descricao="a",Username="luis",Email="admin@ipt.pt",DataNascimento= new DateTime(1997, 9, 29) },
+                        new Utilizadores { Avatar = "aa.jpg", ID = 2, Descricao = "aa", Username = "AntonioSilva", Email = "Jornalista@ipt.com", DataNascimento = new DateTime(1970, 2, 09) },
+                        new Utilizadores {Avatar="aa.jpg",ID=3,Descricao="aaa", Username="Mauricio",Email="teste@ipt.pt", DataNascimento=new DateTime(1922,2,20)}
                     };
-            utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
+            utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Username, aa));
             context.SaveChanges();
 
             //criação das noticias
@@ -54,7 +54,7 @@ namespace ONoticiario.Migrations
                             Data=new DateTime(2019,06,28),
                             Titulo ="aaa",
                             Capa="asd.jpg",
-                            AutorFK=1,
+                            UtilizadorFK=1,
                             Descricao="asdasd.",
                             Conteudo="asdasdsada.",
                             ListaCategorias = new List<Categorias>{categorias[3],categorias[1],categorias[2]},
@@ -65,7 +65,7 @@ namespace ONoticiario.Migrations
                             Data=new DateTime(2019,07,07),
                             Titulo ="asdasdsa",
                             Capa="asdasdas.jpg",
-                            AutorFK=1,
+                            UtilizadorFK=1,
                             Descricao="aaaa",
                             Conteudo="asdasdsadasdas",
                             ListaCategorias = new List<Categorias>{categorias[4],categorias[2]},
@@ -76,7 +76,7 @@ namespace ONoticiario.Migrations
                             Data=new DateTime(2019,07,07),
                             Titulo ="asdasdsa",
                             Capa="asdasdas.jpg",
-                            AutorFK=1,
+                            UtilizadorFK=1,
                             Descricao="aaaa",
                             Conteudo="asdasdsadasdas",
                             ListaCategorias = new List<Categorias>{categorias[4],categorias[2]},
@@ -87,7 +87,7 @@ namespace ONoticiario.Migrations
                             Data=new DateTime(2019,07,07),
                             Titulo ="asdasdsa",
                             Capa="asdasdas.jpg",
-                            AutorFK=2,
+                            UtilizadorFK=2,
                             Descricao="aaaa",
                             Conteudo="asdasdsadasdas",
                             ListaCategorias = new List<Categorias>{categorias[4],categorias[2]},

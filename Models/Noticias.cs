@@ -22,18 +22,20 @@ namespace ONoticiario.Models
 
         //Data da publicação
         public DateTime Data { get; set; }
-        /// <summary>
-        /// Titulo da noticia
-        /// </summary>
+
+        //Titulo da noticia
+        [RegularExpression("^[a-zA-Z0-9_.,áãàâÃÀÁÂÔÒÓÕòóôõÉÈÊéèêíìîÌÍÎúùûçÇ!-.? ]*", ErrorMessage = "O {0} tem caracteres inválidos!")]
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
         public string Titulo { get; set; }
 
-        /// <summary>
-        /// Capa da Noticia
-        /// </summary>
+        //Capa da Noticia
+       
         public string Capa { get; set; }
 
-    
+        //Chave forasteira
+        [ForeignKey("Utilizador")]
+        public int UtilizadorFK { get; set; }
+        public virtual Utilizadores Utilizador { get; set; }
 
         //Paragrafo a negrito da Noticia
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
@@ -43,17 +45,10 @@ namespace ONoticiario.Models
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
         public string Conteudo { get; set; }
 
-        /// <summary>
-        /// Chave forasteira para o Utilizador
-        /// </summary>
-        [ForeignKey("Autor")]
-        public int AutorFK { get; set; }
-        public virtual Utilizadores Autor { get; set; }
-
-        //Relacionar a notícia aos vários comentários
+        //Relacionar a noticia aos varios comentarios
         public virtual ICollection<Comentarios> ListaComentarios { get; set; }
 
-        //Relacionar a notícia às várias categorias
+        //Relacionar a noticia às varias categorias
         public virtual ICollection<Categorias> ListaCategorias { get; set; }
     }
 }
