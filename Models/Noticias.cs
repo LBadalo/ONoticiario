@@ -21,11 +21,12 @@ namespace ONoticiario.Models
         public int ID { get; set; }
 
         //Data da publicação
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime Data { get; set; }
 
         //Titulo da noticia
         [RegularExpression("^[a-zA-Z0-9_.,áãàâÃÀÁÂÔÒÓÕòóôõÉÈÊéèêíìîÌÍÎúùûçÇ!-.? ]*", ErrorMessage = "O {0} tem caracteres inválidos!")]
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
+        //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
         public string Titulo { get; set; }
 
         //Capa da Noticia
@@ -44,6 +45,8 @@ namespace ONoticiario.Models
         //Conteudo da Noticia
         [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
         public string Conteudo { get; set; }
+
+
 
         //Relacionar a noticia aos varios comentarios
         public virtual ICollection<Comentarios> ListaComentarios { get; set; }

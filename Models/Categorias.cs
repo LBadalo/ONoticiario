@@ -17,7 +17,7 @@ namespace ONoticiario.Models
 
         //Nome da categoria
         [RegularExpression("[A-ZÍÉÂÁ]*[a-záéíóúàèìòùâêîôûäëïöüãõç -]*", ErrorMessage = "A {0} só pode conter letras.")]
-        [Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
+        //[Required(ErrorMessage = "O {0} é de preenchimento obrigatório!")]
         public string TipoCategoria { get; set; }
         //Relacionar as categorias com as noticias
         public virtual ICollection<Noticias> ListaNoticias { get; set; }

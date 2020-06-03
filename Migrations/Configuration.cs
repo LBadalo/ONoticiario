@@ -27,10 +27,9 @@
                         new Categorias{ID=2,TipoCategoria="asd"},
                         new Categorias{ID=3,TipoCategoria="aasds"},
                         new Categorias{ID=4,TipoCategoria="asasdadd"},
-                         new Categorias{ID=5,TipoCategoria="as"},
+                        new Categorias{ID=5,TipoCategoria="as"},
                         new Categorias{ID=6,TipoCategoria="asd"},
-                        new Categorias{ID=7,TipoCategoria="aasds"},
-                        new Categorias{ID=8,TipoCategoria="asasdadd"},
+              
 
 
                     };
@@ -39,11 +38,11 @@
 
             //Utilizadores
             var utilizadores = new List<Utilizadores> {
-                        new Utilizadores {Avatar="aa.jpg",ID=1,Descricao="a",Username="luis",Email="admin@ipt.pt",DataNascimento= new DateTime(1997, 9, 29) },
-                        new Utilizadores { Avatar = "aa.jpg", ID = 2, Descricao = "aa", Username = "AntonioSilva", Email = "Jornalista@ipt.com", DataNascimento = new DateTime(1970, 2, 09) },
-                        new Utilizadores {Avatar="aa.jpg",ID=3,Descricao="aaa", Username="Mauricio",Email="teste@ipt.pt", DataNascimento=new DateTime(1922,2,20)}
+                        new Utilizadores {Avatar="aa.jpg",ID=1,Descricao="a",Nome="luis",Username="admin@ipt.pt",DataNascimento= new DateTime(1997, 9, 29) },
+                        new Utilizadores { Avatar = "aa.jpg", ID = 2, Descricao = "aa", Nome = "AntonioSilva", Username = "Jornalista@ipt.com", DataNascimento = new DateTime(1970, 2, 09) },
+                        new Utilizadores {Avatar="aa.jpg",ID=3,Descricao="aaa", Nome="Mauricio",Username="teste@ipt.pt", DataNascimento=new DateTime(1922,2,20)}
                     };
-            utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Username, aa));
+            utilizadores.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();
 
             //criação das noticias
@@ -100,8 +99,8 @@
             //criação de comentários
             var comentarios = new List<Comentarios>
                     {
-                        new Comentarios{ID=1,Descricao="Comentário de teste",UtilizadorFK=3,Data=new DateTime(2019,6,28),NoticiasFK=1},
-                        new Comentarios{ID=2,Descricao="Comentário de teste",Data=new DateTime(2019,6,28),UtilizadorFK=2,NoticiasFK=2},
+                        new Comentarios{ID=1,Descricao="Comentário de teste",Data=new DateTime(2019,6,28),UtilizadorFK=2,NoticiasFK=1},
+                        new Comentarios{ID=2,Descricao="Comentário de teste",Data=new DateTime(2019,6,28),UtilizadorFK=1,NoticiasFK=2},
                     };
             comentarios.ForEach(aa => context.Comentarios.AddOrUpdate(a => a.Descricao, aa));
             context.SaveChanges();
